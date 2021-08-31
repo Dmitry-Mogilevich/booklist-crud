@@ -12,5 +12,10 @@
             <li class="list-group-item">Release date: {{$book->releasedate}}</li>
         </ul>
     </div>
-    <a type="button" class="btn btn-warning mt-3" href="{{ route('books.edit', $book) }}">Edit</a>
+    <form class="mt-3" method="POST" action="{{ route('books.destroy', $book) }}">
+        <a type="button" class="btn btn-warning" href="{{ route('books.edit', $book->id) }}">Edit</a>
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-danger" type="submit">Delete</button>
+    </form>
 @endsection

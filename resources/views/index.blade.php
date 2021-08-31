@@ -31,7 +31,12 @@
                 </td>
                 <td>{{ $book->releasedate }}</td>
                 <td>
-                    <a type="button" class="btn btn-warning" href="{{ route('books.edit', $book->id) }}">Edit</a>
+                        <form method="POST" action="{{ route('books.destroy', $book) }}">
+                            <div class="row"><a type="button" class="btn btn-warning" href="{{ route('books.edit', $book->id) }}">Edit</a></div>
+                            @csrf
+                            @method('DELETE')
+                            <div class="row mt-3"><button class="btn btn-danger" type="submit">Delete</button></div>
+                        </form>
                 </td>
             </tr>
             @endforeach
