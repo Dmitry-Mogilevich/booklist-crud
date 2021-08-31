@@ -49,7 +49,7 @@ class BooksController extends Controller
      */
     public function show(Book $book)
     {
-        return view('show');
+        return view('show', compact('book'));
     }
 
     /**
@@ -68,7 +68,7 @@ class BooksController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Book $book)
     {

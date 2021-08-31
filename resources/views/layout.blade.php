@@ -24,6 +24,9 @@
         textarea {
             resize: none;
         }
+        a{
+            text-decoration: none;
+        }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {

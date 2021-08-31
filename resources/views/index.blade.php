@@ -19,10 +19,16 @@
             @foreach($books as $book)
             <tr>
                 <th scope="row">{{ $book->id }}</th>
-                <td><img src="{{ $book->img }}" alt=""></td>
-                <td>{{ $book->title }}</td>
-                <td>{{ $book->description }}</td>
-                <td>{{ $book->author }}</td>
+                <td><a href="{{ route('books.show', $book) }}"><img src="{{ $book->img }}"></a></td>
+                <td>
+                    <a href="{{ route('books.show', $book) }}">{{ $book->title }}</a>
+                </td>
+                <td>
+                    {{ $book->description }}
+                </td>
+                <td>
+                    <a href="{{ redirect('/') }}">{{ $book->author }}</a>
+                </td>
                 <td>{{ $book->releasedate }}</td>
                 <td>
                     <a type="button" class="btn btn-warning" href="{{ route('books.edit', $book->id) }}">Edit</a>
