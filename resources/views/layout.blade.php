@@ -21,6 +21,9 @@
             -moz-user-select: none;
             user-select: none;
         }
+        textarea {
+            resize: none;
+        }
 
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {

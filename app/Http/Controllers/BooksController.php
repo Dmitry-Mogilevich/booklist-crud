@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Book;
-use App\Models\Booka;
 use Illuminate\Http\Request;
 
 class BooksController extends Controller
@@ -33,11 +33,12 @@ class BooksController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        Book::create($request->only(['title', 'author', 'description','releasedate']));
+        return redirect()->route('books.index');
     }
 
     /**
@@ -71,7 +72,8 @@ class BooksController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $book->update($request->only(['title', 'author', 'description','releasedate']));
+        return redirect()->route('books.index');
     }
 
     /**
