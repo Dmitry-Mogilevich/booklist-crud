@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookRequest;
 use App\Models\User;
 use App\Models\Book;
 use Illuminate\Http\Request;
@@ -35,7 +36,7 @@ class BooksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         Book::create($request->only(['title', 'author', 'description','releasedate']));
         return redirect()->route('books.index');
@@ -70,7 +71,7 @@ class BooksController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Book $book)
+    public function update(BookRequest $request, Book $book)
     {
         $book->update($request->only(['title', 'author', 'description','releasedate']));
         return redirect()->route('books.index');

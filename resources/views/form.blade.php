@@ -17,20 +17,26 @@
             <div class="row">
                 <input
                     name="title"
-                    value="{{ isset($book) ? $book->title : null }}"
+                    value="{{ old('title', isset($book) ? $book->title : null) }}"
                     type="text"
                     class="form-control"
                     placeholder="Book title"
                     aria-label="book title">
+                @error('title')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="row mt-3">
                 <input
                     name="author"
-                    value="{{ isset($book) ? $book->author : null }}"
+                    value="{{ old('author', isset($book) ? $book->author : null) }}"
                     type="text"
                     class="form-control"
                     placeholder="Author"
                     aria-label="author">
+                @error('author')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="row mt-3">
                 <textarea
@@ -39,17 +45,22 @@
                     type="text"
                     class="form-control"
                     placeholder="Short description"
-                    aria-label="short description">{{ isset($book) ? $book->description : null }}
-                </textarea>
+                    aria-label="short description">{{ old('description', isset($book) ? $book->description : null) }}</textarea>
+                @error('description')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="row mt-3">
                 <input
                     name="releasedate"
-                    value="{{ isset($book) ? $book->releasedate : null }}"
+                    value="{{ old('releasedate', isset($book) ? $book->releasedate : null) }}"
                     type="date"
                     class="form-control"
                     placeholder="Release date"
                     aria-label="release date">
+                @error('releasedate')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         <div class="col">
             <button type="submit" class="btn btn-success mt-3">Add</button>
