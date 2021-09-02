@@ -39,7 +39,7 @@ class BooksController extends Controller
     public function store(BookRequest $request)
     {
         Book::create($request->only(['title', 'author', 'description','releasedate']));
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->withSuccess('Created book '.$request->title);
     }
 
     /**
@@ -74,7 +74,7 @@ class BooksController extends Controller
     public function update(BookRequest $request, Book $book)
     {
         $book->update($request->only(['title', 'author', 'description','releasedate']));
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->withSuccess('Updated book '.$book->title);
     }
 
     /**
@@ -86,6 +86,6 @@ class BooksController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->withDanger('Deleted book '.$book->title);
     }
 }
