@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
-use App\Models\User;
 use App\Models\Book;
-use Illuminate\Http\Request;
 
 class BooksController extends Controller
 {
